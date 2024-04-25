@@ -5,16 +5,17 @@ import connectToMongoDb from "./db/connectToMongoDb.js";
 
 
 const app = express();
-dotenv.config();
-
 const PORT = process.env.PORT || 5000;
 
+dotenv.config()
 
-app.get('/', (req, res) => {
-    res.send('Server is ready');
-});
+app.use(express.json())
 
 app.use('/api/auth', authRoutes)
+
+// app.get('/', (req, res) => {
+//     res.send('Server is ready');
+// });
 
 
 app.listen(PORT, () => {
