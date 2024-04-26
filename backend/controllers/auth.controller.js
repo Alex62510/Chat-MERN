@@ -1,5 +1,6 @@
 import User from "../models/user.models.js";
 import bcrypt from 'bcryptjs'
+import generateTokenAndSetCookie from "../utils/generateToken.js";
 
 export const login = (req, res) => {
     console.log('loginUser')
@@ -35,6 +36,7 @@ export const signup = async (req, res) => {
         })
 
         if(newUser){
+            await generateTokenAndSetCookie(newUser._id,res)
             await newUser.save()
             res.status(201).json({_id:newUser._id, fullName:newUser.fullName, username:newUser.username,boyProfilePic:newUser.profilePic})
         } else {
