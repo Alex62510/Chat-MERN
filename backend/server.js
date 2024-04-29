@@ -13,11 +13,6 @@ app.use(express.json())
 
 app.use('/api/auth', authRoutes)
 
-// app.get('/', (req, res) => {
-//     res.send('Server is ready');
-// });
-
-
 app.listen(PORT, () => {
     connectToMongoDb()
     console.log(`Server is running on port ${PORT}`);
