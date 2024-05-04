@@ -8,11 +8,28 @@ const Login = () => {
                 </h1>
                 <form className={''}>
                     <div className={''}>
-                        <label className={'label p-2'}>
-                            <span className={'text-base label-text'}>
+                        <label className={'label p-2 '}>
+                            <span className={'text-base label-text text-gray-300 '}>
                                  Username
                             </span>
                         </label>
+                        <input type="text" placeholder={'Enter username'}
+                               className={'w-full input input-bordered h-10'}/>
+                    </div>
+                    <div className={''}>
+                        <label className={'label p-2 '}>
+                            <span className={'text-base label-text text-gray-300 '}>
+                                 Password
+                            </span>
+                        </label>
+                        <input type="password" placeholder={'Enter password'}
+                               className={'w-full input input-bordered h-10'}/>
+                    </div>
+                    <a href="#" className={'text-gray-300 text-sm hover:underline hover:text-blue-500 mt-2 inline-block'}>
+                        {"Don't"} have an account?
+                    </a>
+                    <div>
+                        <button className={'btn btn-block btn-sm mt-2 hover:opacity-70 '}>Login</button>
                     </div>
                 </form>
             </div>
