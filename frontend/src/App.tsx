@@ -1,17 +1,14 @@
-
 import './App.css'
+import Login from "./components/login/Login.tsx";
 
 function App() {
 
 
-  return (
-      <>
-          <button className="btn btn-outline btn-info">Info</button>
-          <button className="btn btn-outline btn-success">Success</button>
-          <button className="btn btn-outline btn-warning">Warning</button>
-          <button className="btn btn-outline btn-error">Error</button>
-      </>
-  )
+    return (
+        <div className={'p-4 h-screen flex items-center justify-center'}>
+            <Login/>
+        </div>
+    )
 }
 
 export default App
