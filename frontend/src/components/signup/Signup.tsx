@@ -36,7 +36,7 @@ const Signup = () => {
                         <input type="password" placeholder={'Enter password'}
                                className={'w-full input input-bordered h-10'}/>
                     </div>
-                    <div className={''}>
+                    <div className={'pb-2'}>
                         <label className={'label p-2 '}>
                             <span className={'text-base label-text text-gray-300 '}>
                                  Confirm Password
@@ -45,7 +45,6 @@ const Signup = () => {
                         <input type="password" placeholder={'Confirm password'}
                                className={'w-full input input-bordered h-10'}/>
                     </div>
-
                     <GenderCheckBox/>
                     <a href="#"
                        className={'text-gray-300 text-sm hover:underline hover:text-blue-500 mt-2 inline-block'}>
