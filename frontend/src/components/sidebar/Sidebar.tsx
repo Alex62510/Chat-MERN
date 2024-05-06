@@ -1,13 +1,14 @@
 import SearchInput from "./SearchInput.tsx";
-import Conversation from "./Conversation.tsx";
+
 import LogoutButton from "./LogoutButton.tsx";
+import Conversations from "./Conversations.tsx";
 
 const Sidebar = () => {
     return (
-        <div>
+        <div className={'border-r border-slate-500 p-4 flex flex-col '}>
             <SearchInput/>
             <div className={'divider px-3'}></div>
-            <Conversation/>
+            <Conversations/>
             <LogoutButton/>
         </div>
     );
