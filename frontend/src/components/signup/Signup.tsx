@@ -2,6 +2,8 @@ import GenderCheckBox from "./GenderCheckBox.tsx";
 import {Link} from "react-router-dom";
 import {FormEvent, useState} from "react";
 
+
+
 const Signup = () => {
     const [inputs, setInputs] = useState({
         fullname: '',
@@ -11,10 +13,14 @@ const Signup = () => {
         gender: ''
     });
 
+    const handleChackBox=(gender:'male'|"female")=>{
+        setInputs({...inputs,gender})
+    }
+
     const handleSubmit=async (e: FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
     }
-
+console.log(inputs)
     return (
         <div className={'flex flex-col items-center justify-center min-w-96 mx-auto'}>
             <div
@@ -71,7 +77,7 @@ const Signup = () => {
                             setInputs({...inputs, confirmpassword: e.target.value})
                         }}/>
                     </div>
-                    <GenderCheckBox/>
+                    <GenderCheckBox handleChackBox={handleChackBox} gender={inputs.gender} />
                     <Link to="/login"
                           className={'text-gray-300 text-sm hover:underline hover:text-blue-500 mt-2 inline-block'}>
                         Already have an account?
