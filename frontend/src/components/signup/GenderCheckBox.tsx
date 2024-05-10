@@ -1,8 +1,8 @@
 type Props = {
-    handleChackBox: (gender: 'male' | "female") => void
-    gender: 'male' | "female"
+    handleCheckBox: (gender: 'male' | "female"| '') => void
+    gender: 'male' | "female"| string
 }
-const GenderCheckBox = ({handleChackBox, gender}: Props) => {
+const GenderCheckBox = ({handleCheckBox, gender}: Props) => {
     return (
         <div className={'flex'}>
             <div className={'form-control'}>
@@ -10,7 +10,7 @@ const GenderCheckBox = ({handleChackBox, gender}: Props) => {
                     <span className={'label-text'}>Male</span>
                     <input type={'checkbox'}
                            onChange={() => {
-                               handleChackBox('male')
+                               handleCheckBox('male')
                            }}
                            checked={gender === 'male'}
                            className={'checkbox border-slate-900 checkbox-sm checkbox-primary'}/>
@@ -20,7 +20,7 @@ const GenderCheckBox = ({handleChackBox, gender}: Props) => {
                 <label className={`label gap-2 cursor-pointer ${gender==='female'? 'selected':'' }`}>
                     <span className={'label-text'}>Female</span>
                     <input onChange={() => {
-                        handleChackBox('female')
+                        handleCheckBox('female')
                     }} checked={gender === 'female'} type={'checkbox'}
                            className={'checkbox border-slate-900 checkbox-sm checkbox-primary'}/>
                 </label>

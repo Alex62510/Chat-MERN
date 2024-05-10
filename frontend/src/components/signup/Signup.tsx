@@ -1,26 +1,28 @@
 import GenderCheckBox from "./GenderCheckBox.tsx";
 import {Link} from "react-router-dom";
 import {FormEvent, useState} from "react";
-
+import useSignup from "../../hooks/useSignup.ts";
 
 
 const Signup = () => {
     const [inputs, setInputs] = useState({
-        fullname: '',
+        fullName: '',
         username: '',
         password: '',
-        confirmpassword: '',
+        confirmPassword: '',
         gender: ''
     });
+    const {signup, loading} = useSignup()
 
-    const handleChackBox=(gender:'male'|"female")=>{
-        setInputs({...inputs,gender})
+    const handleCheckBox = (gender: 'male' | "female" | '') => {
+        setInputs({...inputs, gender})
     }
 
-    const handleSubmit=async (e: FormEvent<HTMLFormElement>)=>{
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        await signup(inputs)
     }
-console.log(inputs)
+    console.log(inputs)
     return (
         <div className={'flex flex-col items-center justify-center min-w-96 mx-auto'}>
             <div
@@ -37,8 +39,8 @@ console.log(inputs)
                         </label>
                         <input type="text" placeholder={'Enter full name'}
                                className={'w-full input input-bordered h-10'}
-                               value={inputs.fullname} onChange={(e) => {
-                            setInputs({...inputs, fullname: e.target.value})
+                               value={inputs.fullName} onChange={(e) => {
+                            setInputs({...inputs, fullName: e.target.value})
                         }}/>
                     </div>
                     <div className={''}>
@@ -73,11 +75,12 @@ console.log(inputs)
                         </label>
                         <input type="password" placeholder={'Confirm password'}
                                className={'w-full input input-bordered h-10'}
-                               value={inputs.confirmpassword} onChange={(e) => {
-                            setInputs({...inputs, confirmpassword: e.target.value})
+                               value={inputs.confirmPassword} onChange={(e) => {
+                            setInputs({...inputs, confirmPassword: e.target.value})
                         }}/>
                     </div>
-                    <GenderCheckBox handleChackBox={handleChackBox} gender={inputs.gender} />
+                    <GenderCheckBox handleCheckBox={handleCheckBox}
+                                    gender={inputs.gender}/>
                     <Link to="/login"
                           className={'text-gray-300 text-sm hover:underline hover:text-blue-500 mt-2 inline-block'}>
                         Already have an account?
