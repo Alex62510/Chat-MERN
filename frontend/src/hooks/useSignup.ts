@@ -1,5 +1,6 @@
 import {useState} from "react";
 import toast from "react-hot-toast";
+import {useAuthContext} from "../contex/AuthContext.tsx";
 interface SignupData {
     fullName: string;
     username: string;
@@ -26,6 +27,7 @@ const handleInputErrors = ({fullName, username, password, confirmPassword, gende
 
 const useSignup = () => {
     const [loading, setLoading] = useState(false);
+    const {setAuthUser}=useAuthContext()
 
     const signup = async ({fullName, username, password, confirmPassword, gender}:SignupData) => {
         const success = handleInputErrors({
@@ -52,7 +54,13 @@ const useSignup = () => {
                 })
             })
             const data = await res.json()
-            console.log(data)
+            if(data.error){
+                throw new Error(data.error)
+            }
+
+            localStorage.setItem('chat-user',JSON.stringify(data))
+            setAuthUser(data)
+
         } catch (error) {
             toast.error((error as Error).message)
         } finally {
