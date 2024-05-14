@@ -1,4 +1,10 @@
-const Conversation = () => {
+import {ConversationType} from "../../types/type.ts";
+
+type Props={
+    conversation:ConversationType
+}
+
+const Conversation = ({conversation}:Props) => {
     return (
         <>
             <div
