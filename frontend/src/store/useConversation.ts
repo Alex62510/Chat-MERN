@@ -1,18 +1,18 @@
 import {create} from "zustand";
-import {ConversationType} from "../types/type.ts";
+import {ConversationType, MessageType} from "../types/type.ts";
 
 type StateType = {
     selectedConversation: ConversationType | null
     setSelectedConversation: (selectedConversation: ConversationType|null) => void,
-    messages: string[],
-    setMessages: (messages: string[]) => void
+    messages: MessageType[],
+    setMessages: (messages: MessageType[]) => void
 }
 
 const useConversation = create<StateType>((set) => ({
     selectedConversation: null,
     setSelectedConversation: (selectedConversation: ConversationType|null) => set({selectedConversation}),
     messages: [],
-    setMessages: (messages: string[]) => set({messages}),
+    setMessages: (messages: MessageType[]) => set({messages}),
 }));
 
 export default useConversation

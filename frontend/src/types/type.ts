@@ -6,3 +6,10 @@ export type ConversationType = {
     __v: number
     _id: string
 }
+export type MessageType = {
+    _id: string,
+    senderId: string,
+    receiverId: string,
+    message: string,
+    createdAt: string,
+}
