@@ -1,6 +1,10 @@
+import {MessageType} from "../../types/type.ts";
 
+type Props={
+    message: MessageType
+}
 
-const Message = () => {
+const Message = ({}:Props) => {
     return (
         <div className={'chat chat-end'}>
             <div className={'chat-image avatar'}>
