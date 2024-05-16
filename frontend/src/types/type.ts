@@ -13,3 +13,9 @@ export type MessageType = {
     message: string,
     createdAt: string,
 }
+export type UserType={
+    boyProfilePic: string
+    fullName: string
+    username: string
+    _id: string
+}
