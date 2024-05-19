@@ -1,13 +1,16 @@
 import {TiMessages} from "@react-icons/all-files/ti/TiMessages";
+import {useAuthContext} from "../../contex/AuthContext.tsx";
 
 const NoChatSelected = () => {
+    const {authUser}=useAuthContext()
+
     return (
         <div className={'flex items-center justify-center w-full h-full'}>
             <div
                 className={'px-4 text-center sm:text-lg md:text-xl text-gray-200 font-semibold flex flex-col items-center gap-2'}>
-                <p>Welcome Username!</p>
+                <p>Welcome <span className={'text-blue-500'}>{authUser?.fullName}</span></p>
                 <p>Select a chat to start messaging!</p>
-                <TiMessages className={'text-3xl md:text-6xl text-center'} />
+                <TiMessages className={'text-3xl md:text-6xl text-center text-blue-500'} />
             </div>
         </div>
     );
