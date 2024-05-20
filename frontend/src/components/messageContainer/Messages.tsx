@@ -2,15 +2,16 @@ import useGetMessage from "../../hooks/useGetMessage.ts";
 import MessageSkeleton from "../skeletons/MessageSkeleton.tsx";
 import Message from "./Message.tsx";
 import {useEffect, useRef} from "react";
+import useListenMessages from "../../hooks/useListenMessages.ts";
 
 const Messages = () => {
     const {messages, loading} = useGetMessage()
     const lastMessageRef = useRef<HTMLDivElement | null>(null);
-
+    useListenMessages()
     useEffect(() => {
-        setTimeout(()=>{
+        setTimeout(() => {
             lastMessageRef.current?.scrollIntoView({})
-        },100)
+        }, 100)
     }, [messages]);
     return (
         <div className={'px-4 flex-1 overflow-auto'}>
