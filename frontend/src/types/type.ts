@@ -7,6 +7,7 @@ export type ConversationType = {
     _id: string
 }
 export type MessageType = {
+    shouldShake:boolean
     _id: string,
     senderId: string,
     receiverId: string,
