@@ -1,4 +1,4 @@
-import './App.css'
+
 import Login from "./components/login/Login.tsx";
 import Signup from "./components/signup/Signup.tsx";
 import Home from "./components/home/Home.tsx";
