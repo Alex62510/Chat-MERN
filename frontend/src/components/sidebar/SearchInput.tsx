@@ -3,6 +3,7 @@ import {FormEvent, useState} from "react";
 import useConversation from "../../store/useConversation.ts";
 import useGetConversations from "../../hooks/useGetConversations.ts";
 import toast from "react-hot-toast";
+import LogoutButton from "./LogoutButton.tsx";
 
 const SearchInput = () => {
     const [search, setSearch] = useState("");
@@ -24,17 +25,19 @@ const SearchInput = () => {
 
     return (
         <div>
-            <form className={'flex items-center gap-2 justify-center'}
+            <form className={'flex items-center gap-3 justify-center'}
                   onSubmit={handleSubmit}>
                 <input type="text" placeholder={'Search...'} value={search}
                        onChange={e => setSearch(e.target.value)}
                        className={'input input-bordered rounded-full'}/>
                 <button type={'submit'}
-                        className={'btn btn-circle bg-sky-500 text-white'}>
+                        className={'hover:text-blue-500  text-white'}>
 
                     <FaSearch className={'w-6 h-6 outline-none'}/>
                 </button>
+                <LogoutButton/>
             </form>
+
         </div>
     );
 };

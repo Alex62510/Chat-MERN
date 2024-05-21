@@ -21,7 +21,7 @@ const Messages = () => {
             ))}
             {loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx}/>)}
             {!loading && messages.length === 0 &&
-                <p>Send message to start the conversation</p>}
+                <p className={"p-3 sm:text-lg md:text-xl text-gray-300 font-medium"}>Send message to start the conversation</p>}
         </div>
     );
 };

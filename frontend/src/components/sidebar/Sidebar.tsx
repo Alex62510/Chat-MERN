@@ -1,6 +1,4 @@
 import SearchInput from "./SearchInput.tsx";
-
-import LogoutButton from "./LogoutButton.tsx";
 import Conversations from "./Conversations.tsx";
 
 const Sidebar = () => {
@@ -9,7 +7,6 @@ const Sidebar = () => {
             <SearchInput/>
             <div className={'divider px-3'}></div>
             <Conversations/>
-            <LogoutButton/>
         </div>
     );
 };
