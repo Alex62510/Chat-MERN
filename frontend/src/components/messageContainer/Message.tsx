@@ -16,13 +16,13 @@ const Message = ({message}: Props) => {
     const profilePic = fromMe ? authUser?.profilePic : selectedConversation?.profilePic;
     const bubbleBgColor = fromMe ? "bg-blue-500" : ""
     const shakeClass = message.shouldShake ? 'shake' : ''
-console.log(profilePic)
+    console.log(profilePic)
     return (
         <div className={`chat ${chatClassName}`}>
             <div className={'chat-image avatar'}>
                 <div className={'w-10 rounded-full'}>
                     <img
-                        src={profilePic}
+                        src={profilePic && profilePic}
                         alt="user avatar"/>
                 </div>
             </div>
